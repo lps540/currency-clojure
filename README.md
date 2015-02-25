@@ -6,13 +6,13 @@ Prerequisites
 
 1. Install Leiningen: http://leiningen.org/
 
-Setup  
+Instructions:  
 
 1. lein install
-2. lein build
+2. lein run
 
 Other useful commands:
 * lein test
-* lein cloverage (coverage report)
+* lein cloverage (coverage report in ./target/coverage/index.html)
 * lein repl
 
