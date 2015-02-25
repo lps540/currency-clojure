@@ -12,10 +12,7 @@ Setup
 2. lein build
 
 Other useful commands:
-
-lein test
-
-lein cloverage (coverage report)
-
-lein repl
+* lein test
+* lein cloverage (coverage report)
+* lein repl
 
