@@ -13,9 +13,9 @@
     (is (= "567" (last-three "1234567")))))
 
 (deftest convert-decimal-test
-  (testing "convert-decimal")
+  (testing "convert-decimal"
     (is (= " and 25/100" (convert-decimal 25)))
-    (is (= "" (convert-decimal ""))))
+    (is (= "" (convert-decimal "")))))
 
 (deftest validate-test
   (testing "validate"
@@ -26,10 +26,10 @@
     (is (= "Amount not recognized." (validate "1A2")))))
 
 (deftest chunkify-test
-  (testing "chunkify")
+  (testing "chunkify"
     (is (= '("1") (chunkify "1")))
     (is (= '("1" "234") (chunkify "1234")))
-    (is (= '("1" "234" "567") (chunkify "1234567"))))
+    (is (= '("1" "234" "567") (chunkify "1234567")))))
 
 (deftest pronounce-base-test
   (testing "pronounce-base"
@@ -48,9 +48,12 @@
     (is (= "one hundred one", (pronounce-base "101")))))
 
 (deftest pronounce1-test
-  (testing "pronounce1")
-    (is (= "one" (pronounce1 '("1")))))
+  (testing "pronounce1"
+    (is (= "one" (pronounce1 '("1"))))
+    (is (= "one hundred twenty-three" (pronounce1 '("123"))))))
 
 (deftest pronounce-test
-  (testing "pronounce")
-    (is (= "One hundred twenty-three and 45/100 dollars" (pronounce "123.45"))))
+  (testing "pronounce"
+    (is (= "One dollar" (pronounce "1")))
+    (is (= "One hundred twenty-three dollars" (pronounce "123")))
+    (is (= "One hundred twenty-three and 45/100 dollars" (pronounce "123.45")))))
