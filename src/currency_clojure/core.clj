@@ -68,28 +68,28 @@
 (defn chunkify [s]
   (reverse (chunkify1 s)))
 
-(defn pronounce-base [s]
+(defn pronounce-cluster [s]
   (let [size (count s)]
     (cond
       (= size 3)
         (if (= (subs s 0 1) "0")
-          (pronounce-base (subs s 1))
-          (str (ones-map (subs s 0 1)) " hundred " (pronounce-base (subs s 1))))
+          (pronounce-cluster (subs s 1))
+          (str (ones-map (subs s 0 1)) " hundred " (pronounce-cluster (subs s 1))))
 
       (= size 2)
-        (cond (= (subs s 0 1) "0") (pronounce-base (subs s 1))
+        (cond (= (subs s 0 1) "0") (pronounce-cluster (subs s 1))
               (= (subs s 0 1) "1") (teens-map (subs s 1))
-              (= (.trim (subs s 1)) "0") (str (tens-map (subs s 0 1)) (pronounce-base (subs s 1)))
-              :else (str (tens-map (subs s 0 1)) "-" (pronounce-base (subs s 1))))
+              (= (.trim (subs s 1)) "0") (str (tens-map (subs s 0 1)) (pronounce-cluster (subs s 1)))
+              :else (str (tens-map (subs s 0 1)) "-" (pronounce-cluster (subs s 1))))
 
       (= size 1) (ones-map s)
       (= size 0) "")))
 
 (defn pronounce1 [list]
   (let [size (count list)]
-    (cond (= size 1) (pronounce-base (first list))
-          (= (first list) "000") (str (pronounce-base (first list)) (pronounce1 (rest list)))
-          :else (str (pronounce-base (first list)) " " (cluster-map size) " " (pronounce1 (rest list))))))
+    (cond (= size 1) (pronounce-cluster (first list))
+          (= (first list) "000") (str (pronounce-cluster (first list)) (pronounce1 (rest list)))
+          :else (str (pronounce-cluster (first list)) " " (cluster-map size) " " (pronounce1 (rest list))))))
 
 (defn pronounce
   [currency]

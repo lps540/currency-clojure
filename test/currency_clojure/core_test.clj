@@ -33,19 +33,19 @@
 
 (deftest pronounce-base-test
   (testing "pronounce-base"
-    (is (= "", (pronounce-base "")))
-    (is (= "", (pronounce-base "0")))
-    (is (= "", (pronounce-base "00")))
-    (is (= "", (pronounce-base "000")))
-    (is (= "one", (pronounce-base "1")))
-    (is (= "one", (pronounce-base "01")))
-    (is (= "one", (pronounce-base "001")))
-    (is (= "ten", (pronounce-base "10")))
-    (is (= "twenty", (pronounce-base "20")))
-    (is (= "eleven", (pronounce-base "11")))
-    (is (= "twenty-two", (pronounce-base "22")))
-    (is (= "one hundred twenty-three", (pronounce-base "123")))
-    (is (= "one hundred one", (pronounce-base "101")))))
+    (is (= "", (pronounce-cluster "")))
+    (is (= "", (pronounce-cluster "0")))
+    (is (= "", (pronounce-cluster "00")))
+    (is (= "", (pronounce-cluster "000")))
+    (is (= "one", (pronounce-cluster "1")))
+    (is (= "one", (pronounce-cluster "01")))
+    (is (= "one", (pronounce-cluster "001")))
+    (is (= "ten", (pronounce-cluster "10")))
+    (is (= "twenty", (pronounce-cluster "20")))
+    (is (= "eleven", (pronounce-cluster "11")))
+    (is (= "twenty-two", (pronounce-cluster "22")))
+    (is (= "one hundred twenty-three", (pronounce-cluster "123")))
+    (is (= "one hundred one", (pronounce-cluster "101")))))
 
 (deftest pronounce1-test
   (testing "pronounce1"
